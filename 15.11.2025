@@ -1,0 +1,23 @@
+// When you feel that you want a code to get your square numbers  i got it for you
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println(" Square till What number you want : ");
+        int num = sc.nextInt();
+
+        for (int j=1 ; j<=num;j+=10) {
+
+            int num2 ;
+
+            if(j+9>num) { num2 = num;}
+            else{ num2 = j+9;}
+
+            for ( int i= j ; i <=num2 ; i++) {
+                mul = i * i;
+//            if (mul%2==1)continue; //for odd square skip
+//            if (mul%2==0)continue; // for even square skip
+                System.out.println(i + " x " + i + " = " + mul);
+            }
+
+                System.out.println("\nThis Were Square from : "+ j+ " to "+ num2 + " \n");
+
+        }
