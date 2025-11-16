@@ -1,0 +1,35 @@
+// A code to get sum of individual numbers random or in series like a sum of your phone number / birth date/ or your vehicle number : if you ar gonna copy it just do ctrl + c -> ctrl + V no need to download it becz i will make like this small purpose intresting code 
+
+Scanner tin = new Scanner(System.in);
+        System.out.println("Enter your number : ");
+        String obj = tin.nextLine();
+
+        System.out.println(" Warning ! : DO not enter A-Z /a-z you will get an error ");
+
+        int length = obj.length();
+        int count =0;
+        int[] individual_num = new int[length];
+
+
+            do {
+                System.out.println("Character at location \" " + count + " \" is :" + obj.charAt(count));
+
+                individual_num[count] = Integer.parseInt(String.valueOf(obj.charAt(count)));
+                count++;
+
+            } while (count < length );
+
+            System.out.println("Array elements are : " + Arrays.toString(individual_num)); //How does array look like
+
+            int sum = Arrays.stream(individual_num).sum(); // sum all integers in arrray
+            System.out.println("Sum of all elements in array individually is : \" " + sum+" \""); // My answer
+
+
+
+/*   Test case i had in mind input a = 12345 (String)
+        to convert it into -> 1+2+3+4+5 -> 15
+        this 15 shall be my output
+
+        -> but what to do if someone enter 123a ; need to work on that ***********
+
+ */
