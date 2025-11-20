@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.util.SortedMap;
+
+public class mini_project1 {
+    public static void main(String[] args) {
+//        guess the correct number
+        int Correct_number = (int)(Math.random()*100);
+
+        int User_number ;
+        int count1 = 0;
+        System.out.println("Enter any num < 0 to Exit th Game  !");
+        do{
+            Scanner cs = new Scanner(System.in);
+            System.out.println("Enter Your Number user : ");
+            User_number = cs.nextInt();
+
+
+
+            if (User_number== Correct_number){
+                count1 ++;
+                System.out.println("You Guessed Correct number: "+ User_number);
+                break;
+            }
+
+            else if (User_number>Correct_number){
+                System.out.println("Try Again Your number is bigger!");
+                count1 ++;
+            }
+
+            else {
+                System.out.println("Your number is Smaller ! ");
+                count1 ++;
+            }
+
+
+        }while(User_number >=0);
+
+        System.out.println("The  correct Number was : "+ Correct_number);
+        System.out.println("you got correct ans in these many attempts: "+ count1);
+
+
+
+    }
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+
