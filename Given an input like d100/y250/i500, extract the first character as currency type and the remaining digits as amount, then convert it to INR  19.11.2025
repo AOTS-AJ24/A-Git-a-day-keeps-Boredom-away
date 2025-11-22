@@ -1,0 +1,136 @@
+// Question is : 
+/* 
+💻 Coding Question: Currency Converter 
+You are given a string input that represents a currency and its amount. The string starts with one character indicating the currency type, followed by a number:
+
+'d' or 'D' → US Dollars
+'y' or 'Y' → Japanese Yen
+'i' or 'I' → Indian Rupees
+
+Your task is to extract the currency type, extract the amount, and convert it into Indian Rupees (INR) using these conversion rates:
+
+Dollar = 84.0 INR
+Yen = 0.55 INR
+Rupee = 1.0 INR
+
+Input Format:
+A single string such as:
+d100
+y250
+i999
+
+Output Format:
+Print the input and the converted amount in INR.
+
+Constraints:
+Input string length ≥ 2
+First character must be {d, D, y, Y, i, I}
+Remaining part must be a valid positive number
+No symbols allowed
+
+Sample Testcases:
+
+Testcase 1
+Input: d100
+Output:
+Input: d100
+Amount in INR = Rs 8400.0
+
+Testcase 2
+Input: y250
+Output:
+Input: y250
+Amount in INR = Rs 137.5
+
+Testcase 3
+Input: i500
+Output:
+Input: i500
+Amount in INR = Rs 500.0
+
+Testcase 4 (Invalid)
+Input: x200
+Output:
+Invalid input format!
+
+*/
+
+// Solution i have prepared for this query is :
+
+import java.util.Scanner;
+
+public class String_1 {
+    private static double rupees;
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Input example: d100 or y250 or i999
+
+
+        boolean flag = true;
+
+        while(flag ){
+            System.out.print("Enter input (d100/y100/i100): ");
+            String input = sc.nextLine().trim();
+
+            char type = input.charAt(0);
+
+            // Remaining part = amount
+            float amount = Float.parseFloat(input.substring(1));
+
+            double rupees = 0;
+
+            // Conversion rates
+            double DOLLAR_TO_INR = 84.0;   // example
+            double YEN_TO_INR = 0.55;      // example
+            double INR_TO_INR = 1.0;
+
+
+            switch (type) {
+                case 'd':
+                case 'D':
+                    rupees = amount * DOLLAR_TO_INR;
+                    break;
+
+                case 'y':
+                case 'Y':
+                    rupees = amount * YEN_TO_INR;
+                    break;
+
+                case 'i':
+                case 'I':
+                    rupees = amount * INR_TO_INR;
+                    break;
+
+                default:
+                    System.out.println("Invalid input format!\n");
+//                    return;  // i have kept it here becz in previous version it did not have a loop so if u give wrong answer it will not ask you till you answer right i wanted that 
+                    continue;  // thus i tried to bring loop with minimum steps
+            }
+
+
+            System.out.println("\nInput: " + input);
+            System.out.println("Amount in INR = Rs " + rupees);
+            flag= false;
+        }
+        }
+
+}
+
+// i have introduced loop in 1 step : by taking a bbolean flag in while loop and the flag value changes only if correct input is given
+
+
+
+
+
+
+
+
+
+
+
+
+
+
