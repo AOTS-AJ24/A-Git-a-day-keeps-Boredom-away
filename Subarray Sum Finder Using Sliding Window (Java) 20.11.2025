@@ -1,0 +1,105 @@
+// Question is 
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+📌 TITLE: Subarray Sum Finder Using Sliding Window (Java)
+
+💡 HINT LINE:
+You are given an array and a target value; find a continuous subarray whose sum equals the target using sliding window logic.
+
+📝 QUESTION:
+Write a Java program that takes an integer N (size of array), then fills an array of size N with values (you may assume values are sequential like 1,2,3,...). 
+After that, take a target sum from the user and determine whether any continuous subarray adds up exactly to this target. 
+Use the sliding window technique, where you expand the window by moving the right pointer and shrink it from the left when needed. 
+If the target sum is found, print the starting and ending indices of the subarray. If no such subarray exists, display an appropriate message.
+
+📌 CONSTRAINTS:
+1 ≤ N ≤ 10⁵  
+Array elements are positive integers  
+Target is a positive number  
+Use sliding window (two pointers) only  
+Time complexity must be O(N)
+
+📘 SAMPLE TESTCASES:
+
+Testcase 1:
+Input:
+N = 5
+Array = 1 2 3 4 5
+Target = 9
+Output:
+The starting index location in array is : 1
+The ending index location in array is : 3
+
+Testcase 2:
+Input:
+N = 6
+Array = 1 2 3 4 5 6
+Target = 20
+Output:
+The starting index location in array is : 3
+The ending index location in array is : 5
+
+Testcase 3:
+Input:
+N = 4
+Array = 1 2 3 4
+Target = 50
+Output:
+What you are finding '50' it ain't here buddy
+
+Testcase 4:
+Input:
+N = 3
+Array = 1 2 3
+Target = 3
+Output:
+The starting index location in array is : 2
+The ending index location in array is : 2
+
+*/
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Array_1 {
+    public static void main(String [] args){  // my first dsa code : 21-11-2025
+
+                Scanner sc = new Scanner(System.in);
+        System.out.println(" how big in length array u want ? \n -> ");
+                int n = sc.nextInt();
+                int[] arr = new int[n];
+        System.out.println("Enter the elements inside array: ");
+
+        for ( int i = 0; i < n; i++) {
+//                    arr[i] = sc.nextInt();  // takes input from user
+//                    arr[i]= ((int)(Math.random()*100));   // take input randomly and as much as you want till 100
+                    arr[i]= (i+1);  // takes input from i
+                    System.out.print( arr[i] + "  is in  index location : " + i + "\n");
+                }
+        System.out.println("\nEnter the sum target you want : ");
+                long target = sc.nextLong();
+
+                int left = 0;
+                long sum = 0;
+
+                for (int right = 0; right < n; right++) {
+                    sum += arr[right];  /// expand (left is stationary )to --> right
+
+                    while (sum > target && left <= right) {
+                        sum -= arr[left++]; // shrink from left --> to right (right is stationary)
+                    }
+
+                    if (sum == target) {
+                        System.out.println("\n-------------------------------------------------------------");
+                        System.out.println("The starting index location in array is : "+left + "\nThe ending index location in array is :  " + right);
+                        System.out.println("-------------------------------------------------------------");
+                        return; // exit the program because answer found
+                    }
+                }
+
+                System.out.println("What you are finding \' "+ target +" \' it ain't here buddy ");
+
+    }
+
+}
