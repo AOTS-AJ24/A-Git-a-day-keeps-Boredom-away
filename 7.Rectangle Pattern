@@ -1,0 +1,53 @@
+
+
+ //1.Hollow rectangle pattern
+
+        Scanner tin = new Scanner(System.in);
+        System.out.println("Enter your Breadth /row for rect : ");
+        int n = tin.nextInt();//breadth of rectangle   //row
+
+        System.out.println("Enter your length/col for rect : ");
+        int m = tin.nextInt(); // length // col
+
+        //outer loop is row
+        for (int r =1;r<=n;r++){ // we print line by line
+
+            for(int c=1;c<=m;c++){ // so for when row r =1  || r = n (last row) we fill its all columns c with " * "
+
+                if(r==1 || c==1 || r==n || c==m ){ // becz row r=1 || r=n  this is condition becomes true to fill all blocks with " * "
+                    System.out.print("*");
+                }else{
+                    System.out.print(" "); // this we use when all of  the  4 condition in if( ) are false
+                }
+
+            }
+            System.out.println(" ");
+        }
+
+
+        //-------------------------------------------------------------------------------------------------------------
+
+        //2.filled rectangle
+
+        System.out.println("-------------------------------------------------------");
+        System.out.println(" With same previous input now to get filled rectangle ");
+        System.out.println("-------------------------------------------------------");
+
+        //outer loop is row
+        for (int r =1;r<=n;r++){ // we print line by line
+
+            for(int c=1;c<=m;c++){ // so for when row r =1  || r = n (last row) we fill its all columns c with " * "
+
+                System.out.print("*");
+
+               /* if(r==1 || c==1 || r==n || c==m ){ // becz row r=1 || r=n  this is condition becomes true to fill all blocks with " * "
+                    System.out.print("*");
+                }else{
+                    System.out.print(" "); // this we use when all of  the  4 condition in if( ) are false
+                }
+
+                */
+
+            }
+            System.out.println(" ");
+        }
