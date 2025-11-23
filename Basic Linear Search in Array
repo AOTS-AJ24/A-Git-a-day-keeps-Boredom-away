@@ -1,0 +1,49 @@
+ // basic Linear search problem
+
+    /*
+Given an array, arr[] of n integers, and an integer element x, find whether element x is present in the array. Return the index of the first occurrence of x in the array, or -1 if it doesn't exist.
+
+Examples:
+
+Input: arr[] = [1, 2, 3, 4], x = 3
+Output: 2
+Explanation: For array [1, 2, 3, 4], the element to be searched is 3. Since 3 is present at index 2, the output is 2.
+Input: arr[] = [10, 8, 30, 4, 5], x = 5
+Output: 4
+Explanation: For array [10, 8, 30, 4, 5], the element to be searched is 5 and it is at index 4. So, the output is 4.
+Input: arr[] = [10, 8, 30], x = 6
+Output: -1
+Explanation: The element to be searched is 6 and it is not present, so we return -1.
+
+     */
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+//        System.out.println("Enter the len of array: ");
+
+//        int len = sc.nextInt(); //  manual is boring why waste effort when u have random
+        int len = ((int)(Math.random()*100));  //automatic by random
+        int[] roll_no = new int[len];
+
+        int x = ((int) (Math.random() * 100));  // get value of x randomly
+
+
+        for (int i = 0; i < len; i++) {
+            roll_no[i] = ((int) (Math.random() * 100));
+        }
+        System.out.println("--------------");
+        System.out.println("Array is : "+ Arrays.toString(roll_no));
+        System.out.println("--------------");
+        // data insertion in array & x the value to search is done at this stage
+
+         // main function of linear search
+        for (int j = 0; j < len; j++) {
+            if (roll_no[j] == x) {
+                System.out.println("The element we are finding \" " + roll_no[j] + " \" is at index location : " + j);
+//                break; // if want to stop at first occurence uncomment the break
+                return;  // if we get our answer we go out 
+            }
+        }System.out.println("Nah bro the element you are finding \" "+ x+" \" it ain't here .");
+
+}
