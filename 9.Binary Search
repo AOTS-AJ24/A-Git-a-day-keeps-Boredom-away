@@ -1,0 +1,94 @@
+// Just copy paste the code
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Binary_Search {
+    public static void main(String[] args) {
+
+        Scanner tin = new Scanner(System.in);
+        System.out.println("Enter your req length of array : ");
+        int obj = tin.nextInt();
+//        System.out.println("Your result is : " + obj);
+
+        int [] Num = new int [obj];
+
+        //for manual input
+//        System.out.println("Enter Elements in array:  ");
+//        for(int i =0 ;i<obj;i++){
+//            Num[i]= tin.nextInt();
+//        }
+
+        //for auto random input
+        for(int i =0 ;i<obj;i++){
+            Num[i]=  ((int) (Math.random() * 100));
+        }
+
+        System.out.println("-".repeat((obj/2)*10)); // just playing around nothing impo
+        System.out.println("Array is : "+ Arrays.toString(Num) );
+        System.out.println("-".repeat((obj/2)*10));
+
+        System.out.println("\nAFter we Sort Array: \n");
+        Arrays.sort(Num);
+
+        System.out.println("-".repeat((obj/2)*10));
+        System.out.println("Array is : "+ Arrays.toString(Num) );
+        System.out.println("-".repeat((obj/2)*10));
+
+
+        System.out.println("Enter Number you want to find : ");
+        int SearchNum = tin.nextInt();
+
+
+
+        // To make output
+        int indexval =  BSearch_logic(Num , SearchNum);
+
+
+        if(indexval ==-1){
+            System.out.println("\nNumber we are Finding \" " + SearchNum + "\" we did not get in Array  ");
+        }else System.out.println("\nWe Found the Num "+ SearchNum + "\nAt index location: " + indexval);
+
+
+
+    }
+
+    /* but now i came across one more test case
+Input: arr[] = [1, 1, 1, 1, 2], k = 1
+Output: 0
+Explanation: 1 appears at index 0.
+
+Now i will code for that Scenario
+     */
+     
+    //--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    public static int BSearch_logic(int []arr,int findNum) {
+        int left = 0;
+        int right = arr.length - 1;
+        int ans =-1 ;
+
+        while (left <= right) {
+            int midIndex = (left + right) / 2;
+            int midVal = arr[midIndex];
+
+            if (findNum == midVal) {
+                right = midIndex -1; // now to check if there are more occurences if then select the first occurence
+                ans= midIndex;   // we store it here temproary and see if we find its first occurence before this index point
+
+
+            }
+            else if (findNum < midVal) {
+                right = midIndex - 1; // It means number is less than mid value | bring Right pointer ro Mid Index -1 location
+            }
+            else {
+                left = midIndex + 1;
+            } // it means number is bigger than midValue| bring left pointer from index location zero to midIndex+1 , so now search from mid to end
+
+        }
+        return ans ;
+
+    }
+
+}
