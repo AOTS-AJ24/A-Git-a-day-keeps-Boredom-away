@@ -1,0 +1,69 @@
+package Array;
+
+
+import java.util.Arrays;
+import java.util.Scanner;//Now writing a reverse function for array
+
+
+public class Reverse {
+    public static  void reverseFunction ( int[] nums, int left , int right ){
+
+        while(left<right){
+
+            int tmp = nums[left];
+            nums [left]= nums[right];
+            nums[right]=tmp;
+            left++;
+            right--;
+
+        }
+       System.out.println(Arrays.toString(nums));
+
+
+    }
+
+
+
+
+
+    //Main Method ------------------------------------------------------------------------------------------------------------
+
+
+    public static void main(String[] args){
+
+        Scanner tin = new Scanner(System.in);
+        System.out.println("Enter your Array Length : ");
+        int obj = tin.nextInt();
+//        System.out.println("Your result is : " + obj);
+
+
+        int[] nums = new int[obj]; // making array of length
+
+        //auto input with random
+        for(int i =0;i<nums.length;i++){
+            nums[i]=((int) (Math.random() * 100));
+        }
+
+
+        System.out.print("The Array we have is : ");
+        System.out.println(Arrays.toString(nums));
+
+        // Our two pointer left and right left at begining == 0 & right at " end of array = arr.length -1"
+        int left=0;
+        int right = nums.length-1;
+
+
+
+
+        //call function to give input
+        //if only to reverse input
+
+        // Use only 1 function at a time work is still in progress
+          System.out.println("Just Reversed String : ");
+          reverseFunction(nums,left,right);
+
+
+
+
+    }
+}
