@@ -1,0 +1,75 @@
+/*
+
+Maximum prefix sum for a given range
+
+You are given an array arr of integers and a list of queries. Each query consists of two indices, leftIndex and rightIndex, defining a range in the array. For each query, calculate the maximum prefix sum within the given range.
+
+A prefix sum is the sum of all elements from the start of the range up to a certain point within the range.
+
+Examples:
+
+Input: arr = [-1, 2, 3, -5], leftIndex = [0, 1], rightIndex = [3, 3]
+Output:[4, 5]
+Explanation:For the range [0, 3], the prefix sums are [-1, 1, 4, -1]. The maximum is 4. For the range [1, 3], the prefix sums are [2, 5, 0]. The maximum is 5.
+Input: arr = [1, -2, 3, 4, -5], leftIndex = [0, 2, 1], rightIndex = [4, 3, 3]
+Output: [6, 7, 5]
+Explanation: For the range [0, 4], the prefix sums are [1, -1, 2, 6, 1]. The maximum is 6. For the range [2, 3], the prefix sums are [3, 7]. The maximum is 7. For the range [1, 3], the prefix sums are [-2, 1, 5]. The maximum is 5.
+Expected Time Complexity: O(arr.size() * queries)
+Expected Auxiliary Space: O(1)
+
+*/
+// My Code ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class maxPrefixSum_Array {
+
+    // now a function to write
+    static class  Solution {
+        public List<Integer> maxPrefixSum (List<Integer> arr,
+                                           List<Integer> leftIndex,
+                                           List<Integer> rightIndex) {
+            int len = leftIndex.size();
+
+            List<Integer> result = new ArrayList<>(len);
+
+            // now write logic to get sum of previous num(prefix ) till current num
+
+            for (int k =0 ;k<len;k++){
+                int left =leftIndex.get(k);
+                int right=rightIndex.get(k);
+
+                int sum =0;
+
+                int PrefixMax = Integer.MIN_VALUE;
+
+                //logic to add sum in  prefix max
+                for(int i =left;i<=right;i++){
+                    sum+=arr.get(i);
+
+                    PrefixMax=Math.max(PrefixMax,sum);
+
+                }result.add(PrefixMax);
+
+            }return result;
+
+
+
+        }
+    }
+    //main classs to call
+    static void main() {
+        
+        //testcase input
+        List<Integer> arr = Arrays.asList(-1,2,3,-5);
+        List<Integer> leftIndex = Arrays.asList(0,1);
+        List<Integer> rightIndex = Arrays.asList(3,3);
+
+        //now create obj to give input
+        Solution so = new Solution ();
+
+        List<Integer> ans = so.maxPrefixSum(arr,leftIndex,rightIndex);
+
+        //print result
+        System.out.println("Your expected output  is : "+ ans + "\n\n Explain :[q1,q2,......qn]" +
+                "\nwhere each qi == is a query to get max sum value between those selected index (left,right)");
+    }
+}
