@@ -1,0 +1,35 @@
+package String;
+
+import java.util.Scanner;
+
+public class Palindrome_check {
+
+    static String check(String s ){
+
+        int left = 0;
+        int right = s.length()-1;
+
+        while(left<right) {
+
+            if(s.charAt(left)!= s.charAt(right)){ // very jus check if they match if they dont we get outside and return not a palindrome
+                return " Nah Bro it's not a palindrome";
+            }
+            left++;
+            right--;
+        }
+        return " Yep Bro it's  a palindrome \" " + s + " \" " ;
+    }
+
+
+    //main
+    static void main() {
+        Scanner tin = new Scanner(System.in);
+        System.out.println("Enter your String : ");
+        String s = tin.nextLine();
+        System.out.println("Your String is  : " + s);
+
+
+
+        System.out.println(check(s));
+    }
+}
