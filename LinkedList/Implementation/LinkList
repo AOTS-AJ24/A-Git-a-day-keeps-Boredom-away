@@ -1,0 +1,45 @@
+package LinkedList;
+
+
+
+public class LinkList {
+
+    //first node is always head
+    Node head;
+
+    public void insert(int data){
+
+        Node n1 = new Node();
+        n1.data = data;
+        n1.next = null; // no need to give explicitly as it will be by default also null if nothing is assigned
+
+        if(head == null){
+            head = n1;
+        }
+        else {
+
+            Node n2 = head;
+
+            while(n2.next!=null){
+                n2 = n2.next;
+            }
+            n2.next=n1;
+
+        }
+    }
+
+    public  void show(){
+
+        Node node = head;
+        int count =1;
+
+        while (node.next != null){
+
+            System.out.println(node.data + " : this is node number  "+ count );
+            node=node.next;
+            count++;
+        }
+        System.out.println(node.data);
+    }
+
+}
