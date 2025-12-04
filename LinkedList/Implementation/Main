@@ -1,0 +1,13 @@
+package LinkedList;
+
+public class Call {
+    static void main() {
+        LinkList l1 = new LinkList();
+
+        l1.insert(24);  // this will insert integer value
+        l1.insert(25);
+        l1.insert(26);
+
+        l1.show();
+    }
+}
