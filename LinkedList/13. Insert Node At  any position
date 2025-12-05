@@ -1,0 +1,25 @@
+public void insertAt(int index, int data3){
+        //to insert at any location in a node
+
+        Node no = new Node();
+        no.data = data3;  //this i sindependent nod c
+        no.next = null;
+
+        //first node index is 1 becz i have taken index --> 1 2 3 || you can also take index --> 0 1 2 3
+        if(index==1){
+            insertAtStart(data3);  // this just means i want it as my first node
+            return;
+        }
+
+        
+        Node navi = head; // creating a node obj as point to travel
+        for(int i =1;i<index-1;i++){
+            navi=navi.next;            // in this traversal this line mean a--> b but we want to add c in between them so what we do is
+        }
+
+        no.next = navi.next;          // this mean c-->b
+        navi.next=no ;           // this mean a-->c
+
+        // thus we get a-->c-->b
+
+    }
