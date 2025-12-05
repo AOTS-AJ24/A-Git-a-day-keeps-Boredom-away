@@ -1,0 +1,12 @@
+public void insertAtStart(int data2){
+
+
+
+        Node newHead = new Node();   // create a node only that
+        newHead.data=data2;         // assign data value to node we have created
+
+        newHead.next = head;      // here we say that this node will come before head
+        head = newHead;          // here we say that this  newHead node is the  1st node -> head
+
+
+    }
